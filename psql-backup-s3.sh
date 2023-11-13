@@ -30,7 +30,7 @@ backup_path="$backup_dir/${backup_name}"
 final_backup_path="$backup_dir/${backup_name}.bz2"
 
 dump_db(){
-    DUMP_DB_CMD='PGPASSWORD='$DB_PASSWORD' pg_dump -d "'$DB_NAME'" -U "'$DB_USER'" -h "'$DB_SERVICE_NAME'" -p "'$DB_PORT'"'
+    DUMP_DB_CMD='PGPASSWORD='$DB_PASSWORD' pg_dump --inserts -d "'$DB_NAME'" -U "'$DB_USER'" -h "'$DB_SERVICE_NAME'" -p "'$DB_PORT'"'
 
     DB_TABLES_ARRAY=(${DB_TABLES//;/ })
     TABLES_STRING=""
